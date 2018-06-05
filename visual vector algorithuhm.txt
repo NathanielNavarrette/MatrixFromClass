@@ -1,0 +1,72 @@
+Visual Aid for Matrix Multiplication
+
+ABC	JKL	(AJ+BM+CP)  (AK+BN+CQ)  (AL+BO+CR)
+DEF  *	MNO   =	(DJ+EM+FP)  (DK+EN+FQ)  (DL+EO+FR)
+GHI	PQR	(GJ+HM+IP)  (GK+HN+IQ)  (GL+HO+IR)
+
+TOP ROW:
+(AJ+BM+CP)			(AK+BN+CQ)				(AL+BO+CR)
+m1.at(0).at(0) * m2.at(0).at(0)		m1.at(0).at(0) * m2.at(0).at(1)		m1.at(0).at(0) * m2.at(0).at(2)
+m1.at(0).at(1) * m2.at(1).at(0)		m1.at(0).at(1) * m2.at(1).at(1)		m1.at(0).at(1) * m2.at(1).at(2)
+m1.at(0).at(2) * m2.at(2).at(0)		m1.at(0).at(2) * m2.at(2).at(1)		m1.at(0).at(2) * m2.at(2).at(2)
+
+MIDDLE ROW:
+(DJ+EM+FP)			(DK+EN+FQ)				(DL+EO+FR)
+m1.at(1).at(0) * m2.at(0).at(0)		m1.at(1).at(0) * m2.at(0).at(1)		m1.at(1).at(0) * m2.at(0).at(2)
+m1.at(1).at(1) * m2.at(1).at(0)		m1.at(1).at(1) * m2.at(1).at(1)		m1.at(1).at(1) * m2.at(1).at(2)
+m1.at(1).at(2) * m2.at(2).at(0)		m1.at(1).at(2) * m2.at(2).at(1)		m1.at(1).at(2) * m2.at(2).at(2)
+
+BOTTOM ROW:
+(GJ+HM+IP)  			(GK+HN+IQ)				(GL+HO+IR)
+m1.at(2).at(0) * m2.at(0).at(0)		m1.at(2).at(0) * m2.at(0).at(1)		m1.at(2).at(0) * m2.at(0).at(2)
+m1.at(2).at(1) * m2.at(1).at(0)		m1.at(2).at(1) * m2.at(1).at(1)		m1.at(2).at(1) * m2.at(1).at(2)
+m1.at(2).at(2) * m2.at(2).at(0)		m1.at(2).at(2) * m2.at(2).at(1)		m1.at(2).at(2) * m2.at(2).at(2)
+
+
+---------------------------------------------------------------------------------------------------------------
+
+
+
+•Outside loop will be the position of the second varible in the multiplication (number of rows in first vector)
+	•Inside loop will be the position of the first varible in multiplication (number of collumns in second vector)
+
+typedef std::vector<std::vector<int>> m_Matrix;
+
+std::vector<int> resulut_tmp;
+m_Matrix return_value;
+
+/*
+for(int i=0; i < lhs.get_rows(); i++)
+{
+	for(int j=0; j < rhs.get_cols(); j++)
+	{
+		//this only gives one of the 'X' values needed to add them up.
+		result_tmp.push_back( (lhs.at(i).at(j) * rhs.at(j).at(i));
+	}
+}
+*/
+
+for(int i=0; i < lhs.get_rows(); i++)
+{
+	for(int j=0; j < rhs.get_cols(); j++)
+	{
+		for(int k = 0; k < lhs.get_cols(); k++)
+		{
+			result_tmp.push_back( (lhs.at(i).at(k) * rhs.at(k).at(j));
+		}
+	}
+}
+
+
+
+With Arrays:
+for(i = 0; i < r1; ++i)
+{
+        for(j = 0; j < c2; ++j)
+	{
+            for(k = 0; k < c1; ++k)
+            {
+                mult[i][j] += a[i][k] * b[k][j];
+            }
+	}
+}
