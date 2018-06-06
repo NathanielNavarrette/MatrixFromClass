@@ -49,15 +49,10 @@ QString MatrixView::get_matrix_string(Matrix &displayThis)
     {
         for(int j=0;j<m_data.get_cols();j++)
         {
-            qDebug() << "break 1: i:" << i << " j: " << j;
             return_string += QString("%1").arg(QString::number(m_data.get_value_at(i, j)), -5);// + " ";
-            qDebug() << "adding value to string";
         }
-        qDebug() << "adding space to string";
         return_string += "\n"; //adds a new line for the matrix
     }
-
-    qDebug() << "Return statement";
     return return_string;
 }
 

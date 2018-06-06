@@ -14,8 +14,6 @@ void matrixWindow::addMatrixAccept()
 
 void matrixWindow::autoRun(bool clicked)
 {
-    qDebug() << "auto ran has been clicked";
-
     //randomly create the number for rows and collumns for auto run function
     int max_value = 3;
     qsrand(QDateTime::currentMSecsSinceEpoch()%5000);
@@ -34,7 +32,7 @@ void matrixWindow::autoRun(bool clicked)
     //call the rest of the functio to pass and create actual Matrix varible
     createMatrixAuto();
 
-    qDebug() << "Random Rows: " << randRows << " Random Cols: " << randCols;
+    //qDebug() << "Random Rows: " << randRows << " Random Cols: " << randCols;
 }
 
 void matrixWindow::createMatrixAuto()
@@ -62,8 +60,6 @@ void matrixWindow::createMatrixAuto()
 void matrixWindow::addMatrixDialog()
 {
     std::vector<int> c_tmp;
-    qDebug() << "Rows:" << this->rows << " Columns: " << this->collums;
-    //int totalValues = rows * collums;
 
     QDialog dialog(this);
     dialog.setMinimumHeight(225);
@@ -112,7 +108,6 @@ void matrixWindow::addMatrixDialog()
         foreach(QLineEdit * lineEdit, fields)
         {
             c_tmp.push_back(lineEdit->text().toInt());
-            //qDebug() << lineEdit->text().toInt();
         }
         Matrix m_matrix(c_tmp, rows, collums);
         emit sendMatrix(m_matrix);

@@ -14,7 +14,6 @@ Matrix::Matrix(m_Matrix complete_set)
 
 Matrix::Matrix(std::vector<int> in_values, int rows, int cols)
 {
-    qDebug() << "Matrix Constructor called";
     m_rows = rows;
     m_cols = cols;
     std::vector<int> these_rows;
@@ -58,7 +57,7 @@ int Matrix::get_cols() const
 
 int Matrix::get_value_at(int this_row, int this_col)
 {
-    qDebug() << "outside size: " << m_data.size() << " Inside side: " << m_data.at(this_row).size();
+    //qDebug() << "outside size: " << m_data.size() << " Inside side: " << m_data.at(this_row).size();
     return m_data.at(this_row).at(this_col);
 }
 

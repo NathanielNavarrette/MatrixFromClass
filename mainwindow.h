@@ -45,15 +45,15 @@ private:
     QWidget *operationMenu = new OperMenu(this);
 
 public slots:
-    void addMatrixSlot(bool pressed);
-    void finishedAddingMatrix(Matrix add_this);
-    void addedMatrixSlot(Matrix viewThis);
-    void viesResultingMatrix(Matrix lhs, Matrix rhs, Matrix result, QString operation);
     void tempSlotDebug(bool pressed);
     void operationButtonSending(bool pressed);
     void clearScreenSlot(bool pressed);
-    void operMenuClosed(std::vector<Matrix> recieved_list);
+    void addMatrixSlot(bool pressed);
     void autRunSlot(bool clicked);
+    void operMenuClosed(std::vector<Matrix> recieved_list);
+    void finishedAddingMatrix(Matrix add_this);
+    void addedMatrixSlot(Matrix viewThis);
+    void viesResultingMatrix(Matrix lhs, Matrix rhs, Matrix result, QString operation);
 
 signals:
     void addingMatrix(bool);

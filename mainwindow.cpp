@@ -67,6 +67,7 @@ void MainWindow::viesResultingMatrix(Matrix lhs, Matrix rhs, Matrix result, QStr
     matrixLayout->addWidget(l3);
     matrixLayout->addWidget(l4);
     matrixLayout->addWidget(l5);
+    //matrixLayout->setAlignment(Qt::AlignRight);
 
     outputWidgets.push_back(l1);
     outputWidgets.push_back(l2);
